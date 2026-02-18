@@ -1,0 +1,217 @@
+body{
+  margin:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:monospace;
+  color:white;
+
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:manipulation;
+}
+
+.game-container{
+  position:relative;
+  text-align:center;
+}
+
+/* 🔝 TOP BAR */
+
+.topbar{
+  width:320px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+  font-size:14px;
+  letter-spacing:1px;
+}
+
+.top-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* ⚙️ SETTINGS BUTTON */
+
+.settings-btn{
+  background:none;
+  border:none;
+  font-size:18px;
+  color:#00ffe1;
+  cursor:pointer;
+
+  text-shadow:0 0 10px #00ffe1;
+  transition:0.2s;
+}
+
+.settings-btn:hover{
+  transform:rotate(90deg) scale(1.2);
+}
+
+/* 🎮 CANVAS */
+
+canvas{
+  background:black;
+  border-radius:12px;
+  box-shadow:
+    0 0 25px #00ffe122 inset,
+    0 0 18px #00ffe155;
+}
+
+/* 🎮 CONTROLS */
+
+.controls{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+.middle{
+  display:flex;
+  gap:42px;
+}
+
+.circle{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:2px solid #00ffe1;
+
+  background:#050505;
+  color:#00ffe1;
+  font-size:24px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 0 10px #00ffe1,
+    inset 0 0 12px #00ffe144;
+
+  transition:0.15s;
+
+  touch-action:manipulation;
+}
+
+.circle:active{
+  transform:scale(0.85);
+  box-shadow:
+    0 0 25px #00ffe1,
+    inset 0 0 18px #00ffe1;
+}
+
+/* 💀 POPUP */
+
+.popup{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.75);
+  z-index:20;
+}
+
+.hidden{ display:none; }
+
+.popup-content{
+  color:#ffd300;
+  text-shadow:0 0 18px #ffd300;
+  animation:pop 0.25s ease;
+}
+
+@keyframes pop{
+  from{ transform:scale(0.7); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+.popup-content button{
+  padding:10px 22px;
+  border:none;
+  border-radius:8px;
+  background:#00ffe1;
+  box-shadow:0 0 15px #00ffe1;
+  cursor:pointer;
+}
+
+/* ⚙️ SETTINGS PANEL */
+
+.settings-panel{
+  position:absolute;
+  top:40px;
+  right:0;
+  width:220px;
+
+  background:rgba(0,0,0,0.9);
+  border-radius:12px;
+  padding:14px;
+
+  box-shadow:0 0 18px #00ffe155;
+  z-index:30;
+
+  animation:pop 0.25s ease;
+}
+
+.settings-panel h2{
+  margin-top:0;
+  color:#00ffe1;
+  text-shadow:0 0 12px #00ffe1;
+  font-size:16px;
+}
+
+/* 🎚 SETTINGS GROUP */
+
+.setting-group{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:13px;
+}
+
+/* 🎚 SLIDER */
+
+.setting-group input[type="range"]{
+  width:100%;
+  accent-color:#00ffe1;
+}
+
+/* 🔇 MUTE BUTTON */
+
+.setting-group button{
+  align-self:flex-end;
+  background:none;
+  border:none;
+  color:#00ffe1;
+  font-size:16px;
+  cursor:pointer;
+  text-shadow:0 0 10px #00ffe1;
+}
+
+/* 📱 SMALL SCREENS */
+
+@media (max-width:400px){
+
+  .circle{
+    width:60px;
+    height:60px;
+    font-size:20px;
+  }
+
+  .middle{
+    gap:30px;
+  }
+
+  .settings-panel{
+    width:200px;
+  }
+
+}

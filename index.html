@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-container">
+
+  <!-- 🔝 TOP BAR -->
+  <div class="topbar">
+    <div>SCORE: <span id="score">0</span></div>
+
+    <div class="top-right">
+      <div>BEST: <span id="bestScore">0</span></div>
+      <button id="settingsBtn" class="settings-btn">⚙️</button>
+    </div>
+  </div>
+
+  <canvas id="game" width="320" height="400"></canvas>
+
+  <!-- 🎮 CONTROLS -->
+  <div class="controls">
+
+    <button class="circle" onpointerdown="setDir(0,-1)">▲</button>
+
+    <div class="middle">
+      <button class="circle" onpointerdown="setDir(-1,0)">◀</button>
+
+      <!-- ⏸ PAUSE BUTTON -->
+      <button class="circle" id="pauseBtn">⏸</button>
+
+      <button class="circle" onpointerdown="setDir(1,0)">▶</button>
+    </div>
+
+    <button class="circle" onpointerdown="setDir(0,1)">▼</button>
+
+  </div>
+
+  <!-- ⚙️ SETTINGS PANEL -->
+  <div id="settingsPanel" class="settings-panel hidden">
+
+    <h2>SETTINGS</h2>
+
+    <!-- 🎵 MUSIC -->
+    <div class="setting-group">
+      <label>Music</label>
+      <input type="range" id="musicVolume" min="0" max="1" step="0.01">
+      <button id="musicMute">🔇</button>
+    </div>
+
+    <!-- 🔊 GAME SOUND -->
+    <div class="setting-group">
+      <label>Game Sound</label>
+      <input type="range" id="sfxVolume" min="0" max="1" step="0.01">
+      <button id="sfxMute">🔇</button>
+    </div>
+
+  </div>
+
+  <!-- 💀 GAME OVER -->
+  <div id="gameOverPopup" class="popup hidden">
+    <div class="popup-content">
+      <h1>GAME OVER</h1>
+      <p id="finalScore">Score: 0</p>
+      <button onclick="restartGame()">PLAY</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
